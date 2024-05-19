@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { useGetParksPlacesQuery } from "../../app/services/nationalparkApi/nationalparkApi";
 import PlaceItem from "../placeItem/PlaceItem";
+import { FadeLoader } from "react-spinners";
 
 const Places = () => {
   const { data } = useGetParksPlacesQuery();
-
-  // useState hook'unu koşula bağlı olarak kullanmaktan kaçının
   const [currentPage, setCurrentPage] = useState(1);
 
   if (!data) {
-    return <div className="min-h-screen">Loading...</div>;
+    <div className="flex flex-row justify-center items-center min-h-screen">
+      <FadeLoader color="#282828" />
+    </div>;
   }
 
   const itemsPerPage = 5;

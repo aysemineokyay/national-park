@@ -1,12 +1,17 @@
-import React from "react";
+
 import { useGetParksFeesQuery } from "../../app/services/nationalparkApi/nationalparkApi";
 import FeeItem from "../feeItem/FeeItem";
+import { FadeLoader } from "react-spinners";
 
 const Fees = () => {
   const { data } = useGetParksFeesQuery();
 
   if (!data) {
-    return <div className="min-h-screen">Loading...</div>;
+    return (
+      <div className="flex flex-row justify-center items-center min-h-screen">
+        <FadeLoader color="#282828" />
+      </div>
+    );
   }
 
   return (

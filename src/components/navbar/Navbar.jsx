@@ -1,4 +1,4 @@
-import React from "react";
+
 import yosemiteImage from "../../assets/yose.jpg";
 import { Link } from "react-router-dom";
 import { useGetParksQuery } from "../../app/services/nationalparkApi/nationalparkApi";

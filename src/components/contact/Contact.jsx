@@ -1,12 +1,17 @@
-import React from "react";
+
 import "./contact.css";
 import { useGetParksQuery } from "../../app/services/nationalparkApi/nationalparkApi";
+import { FadeLoader } from "react-spinners";
 
 const Contact = () => {
   const { data } = useGetParksQuery();
 
   if (!data || !data.addresses || !data.contacts) {
-    return <div className="min-h-screen">Loading...</div>;
+    return (
+      <div className="flex flex-row justify-center items-center min-h-screen">
+        <FadeLoader color="#282828" />
+      </div>
+    );
   }
   return (
     <div className="p-10 flex flex-col md:gap-5 gap-3 min-h-screen">

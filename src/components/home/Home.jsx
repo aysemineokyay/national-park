@@ -7,13 +7,18 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { Link } from "react-router-dom";
 import bg from "../../assets/background.jpg";
+import { FadeLoader } from "react-spinners";
 
 const Home = () => {
   const { data } = useGetParksQuery();
   const { data: activities } = useGetParksThingsToDoQuery();
 
   if (!data || !activities) {
-    return <div className="min-h-screen">Loading...</div>;
+    return (
+      <div className="flex flex-row justify-center items-center min-h-screen">
+        <FadeLoader color="#282828" />
+      </div>
+    );
   }
   const background = bg;
   return (

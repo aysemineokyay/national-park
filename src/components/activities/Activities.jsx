@@ -1,11 +1,16 @@
-import React from "react";
+
 import { useGetParksThingsToDoQuery } from "../../app/services/nationalparkApi/nationalparkApi";
 import ActivityItem from "../activityItem/ActivityItem";
+import { FadeLoader } from "react-spinners";
 
 const Activities = () => {
   const { data } = useGetParksThingsToDoQuery();
   if (!data) {
-    return <div className="min-h-screen">Loading...</div>;
+    return (
+      <div className="flex flex-row justify-center items-center min-h-screen">
+        <FadeLoader color="#282828" />
+      </div>
+    );
   }
 
   return (

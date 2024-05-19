@@ -1,11 +1,16 @@
-import React from "react";
+
 import { useGetParksQuery } from "../../app/services/nationalparkApi/nationalparkApi";
 import GalleryItem from "../galleryItem/GalleryItem";
+import { FadeLoader } from "react-spinners";
 
 const Gallery = () => {
   const { data } = useGetParksQuery();
   if (!data) {
-    return <div className="min-h-screen">Loading...</div>;
+    return (
+      <div className="flex flex-row justify-center items-center min-h-screen">
+        <FadeLoader color="#282828" />
+      </div>
+    );
   }
   const gallery = data && data.images ? data.images : [];
 
